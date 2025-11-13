@@ -1,0 +1,54 @@
+import { Navigate, Route, Routes } from 'react-router-dom'
+import './assets/index.css'
+import Contenedor from './components/Contenedor.jsx'
+import Interprete from "./components/Interprete.jsx"
+import peliculas from './data/peliculas.js'
+import Header from './components/Header.jsx'
+import Nav from './components/Nav.jsx'
+
+function App() {
+  return (
+    <>
+    
+
+    <Routes>
+      <Route element={<Contenedor />}>
+      <Route path="/inicio" element={<Navigate to="/"/>}/>
+      <Route path="/home" element={<Home/>}/>
+      <Route path="/peliculas" element={<Peliculas/>}/>
+      <Route path="/interpretes" element={<Interprete/>}/>
+
+
+      <Route path="*" element={<p> error</p>}/>
+      </Route>
+      
+    </Routes>
+    <Header>
+      <Nav/>
+    </Header>
+      <h1 className='contenedor__h1'>Mis Intérpretes</h1>
+      <h1 id="main-section-title" className="contenedor__h2">Intérpretes de películas destacadas</h1>
+
+
+      <Contenedor>
+         {peliculas
+         //.filter(pelicula => pelicula.clasificacion === "Drama")
+         .map((pelicula) =>  
+        pelicula.actores.map((interprete, index) =>
+          <Interprete 
+            key={index}
+            nombre={interprete.nombre} 
+            foto={interprete.imagen}
+            esNota10={pelicula.nota === 10}
+          >
+            {interprete.biografia}
+          </Interprete>
+        ))
+        }
+      
+      </Contenedor>
+    </>
+  )
+}
+
+export default App
