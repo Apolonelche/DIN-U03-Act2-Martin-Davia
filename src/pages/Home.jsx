@@ -1,6 +1,9 @@
 
 export default function Home() {
     return (
-        <p>Hola</p>
+        <>
+            <h2 className="contenedor__h2"> Bienvenidos a mi Página </h2>
+            <p className="">Esta es la página principal de la aplicación</p>
+        </>
     )
 }

@@ -1,31 +1,32 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes} from 'react-router-dom'
 import './assets/index.css'
 import Contenedor from './components/Contenedor.jsx'
-import Interprete from "./components/Interprete.jsx"
-import peliculas from './data/peliculas.js'
+import Peliculas from "./pages/Peliculas.jsx"
+import Interpretes from "./pages/Interpretes.jsx"
 import Header from './components/Header.jsx'
-import Nav from './components/Nav.jsx'
+import Home from './pages/Home.jsx'
+import Admin from './pages/Admin.jsx'
 
-function App() {
+export default function App() {
+  const isAuthenticated = false; // Simulación de autenticación
+
   return (
     <>
-    
+    <Header/>
 
     <Routes>
       <Route element={<Contenedor />}>
-      <Route path="/inicio" element={<Navigate to="/"/>}/>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="/peliculas" element={<Peliculas/>}/>
-      <Route path="/interpretes" element={<Interprete/>}/>
-
-
-      <Route path="*" element={<p> error</p>}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/Inicio" element={<Home/>}/>
+        <Route path="/peliculas" element={<Peliculas/>}/>
+        <Route path="/interpretes" element={<Interpretes/>}/>
+        <Route path="/admin" element={ isAuthenticated ? <Admin/> : <Home/>}/>
       </Route>
-      
+
+        <Route path="*" element={<Contenedor titulo="Página no existe"/>}/>
+
     </Routes>
-    <Header>
-      <Nav/>
-    </Header>
+    {/*
       <h1 className='contenedor__h1'>Mis Intérpretes</h1>
       <h1 id="main-section-title" className="contenedor__h2">Intérpretes de películas destacadas</h1>
 
@@ -47,8 +48,7 @@ function App() {
         }
       
       </Contenedor>
+      */}
     </>
   )
 }
-
-export default App
