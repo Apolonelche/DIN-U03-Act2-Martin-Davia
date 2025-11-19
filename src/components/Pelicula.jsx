@@ -1,0 +1,19 @@
+function Pelicula(props) {
+  const {foto, nombre} = props;
+  return (
+    <>
+      <article className="interprete" tabIndex="0">
+        <figure>
+        <img src={foto} alt={nombre} />
+        <figcaption className="sr-only">{props.children}</figcaption>
+        </figure>
+        <header>
+          <h2>{nombre}</h2>
+          <p>{props.children}</p>
+        </header>
+      </article>
+    </>
+  )
+}
+
+export default Pelicula

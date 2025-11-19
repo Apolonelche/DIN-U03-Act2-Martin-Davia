@@ -6,6 +6,7 @@ import Interpretes from "./pages/Interpretes.jsx"
 import Header from './components/Header.jsx'
 import Home from './pages/Home.jsx'
 import Admin from './pages/Admin.jsx'
+import ShowDetails from './pages/showDetails.jsx'
 
 export default function App() {
   const isAuthenticated = false; // Simulación de autenticación
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/peliculas" element={<Peliculas/>}/>
         <Route path="/interpretes" element={<Interpretes/>}/>
         <Route path="/admin" element={ isAuthenticated ? <Admin/> : <Home/>}/>
+        <Route path="/details/:indice" element={<ShowDetails/>} />
       </Route>
 
         <Route path="*" element={<Contenedor titulo="Página no existe"/>}/>

@@ -87,23 +87,18 @@
   margin: 0 1rem 1rem 1rem;
 }
 
-/* === NAV GENERAL === */
+/* CONTENEDOR PRINCIPAL */
 .nav {
   width: 100%;
   background: #181818;
   padding: 12px 20px;
-  
   display: flex;
+  justify-content: space-between; /* Logo ← → Right */
   align-items: center;
-  justify-content: space-between; /* 👈 SEPARA LOGO Y LINKS */
-  
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* === LOGO / TÍTULO === */
+/* LOGO */
 .nav__logo {
   color: #fff;
   font-size: 1.3rem;
@@ -111,16 +106,25 @@
   font-weight: 700;
 }
 
-/* === LISTA DE ENLACES === */
-.nav__list {
+/* CONTENEDOR DERECHA: menú + hamburguesa */
+.nav__right {
   display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* === LINKS === */
+/* BOTÓN HAMBURGUESA */
+.nav__toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+
+/* LINKS */
 .nav__link {
   text-decoration: none;
   font-size: 1rem;
@@ -136,7 +140,7 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Active (si usas NavLink) */
+/* Active */
 .nav__link--active {
   color: #fff;
   background: #007bff;
