@@ -87,6 +87,58 @@
   margin: 0 1rem 1rem 1rem;
 }
 
+/* ================================================================= CARD DETAIL STYLES ========================================================================== */
+/* Contenedor principal para el layout de imagen y texto */
+.card_layout {
+    display: flex; /* Habilitar Flexbox */
+    align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+    gap: 20px; /* Espacio entre la imagen y el bloque de texto */
+    max-width: 900px; /* Ancho máximo para la tarjeta completa */
+    margin: 30px auto; /* Centrar la tarjeta en la página y darle margen */
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco para la tarjeta */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+/* Estilo para la imagen */
+.card_img {
+    width: 200px; /* Ancho fijo para la imagen del póster */
+    height: auto; /* Mantener la proporción */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para la imagen */
+}
+
+/* Contenedor para el título y la descripción */
+.info_card {
+    flex-grow: 1; /* Permite que este div ocupe todo el espacio restante */
+    display: flex; /* También Flexbox para h2 y p */
+    flex-direction: column; /* Apila el h2 y el p */
+    justify-content: flex-start; /* Alinea el contenido al principio (arriba) */
+}
+
+/* Estilo para el título de la película/intérprete */
+.card_title {
+    font-size: 2.2rem; /* Tamaño de fuente más grande */
+    color: #222; /* Color oscuro */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left; /* Alineado a la izquierda */
+    border-bottom: 3px solid #ff4500; /* Línea de color debajo del título */
+    padding-bottom: 10px;
+    font-weight: 700; /* Negrita */
+}
+
+/* Estilo para el párrafo de descripción */
+.card_desc {
+    font-size: 1.1rem; /* Un poco más grande para mejor lectura */
+    color: #444;
+    line-height: 1.7;
+    text-align: justify; /* Justificar el texto */
+    margin-bottom: 0;
+}
+
+/* ================================================================= NAVBAR STYLES ========================================================================== */
 /* CONTENEDOR PRINCIPAL */
 .nav {
   width: 100%;
@@ -158,4 +210,6 @@
     justify-content: center;
     gap: 0.7rem;
   }
+
+  
 }

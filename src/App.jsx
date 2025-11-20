@@ -22,7 +22,8 @@ export default function App() {
         <Route path="/peliculas" element={<Peliculas/>}/>
         <Route path="/interpretes" element={<Interpretes/>}/>
         <Route path="/admin" element={ isAuthenticated ? <Admin/> : <Home/>}/>
-        <Route path="/details/:indice" element={<ShowDetails/>} />
+        <Route path="/details/:indice" element={<ShowDetails tipo="pelicula"/>} />
+        <Route path="/details/:indice/:interprete" element={<ShowDetails tipo="interprete" />} />
       </Route>
 
         <Route path="*" element={<Contenedor titulo="Página no existe"/>}/>

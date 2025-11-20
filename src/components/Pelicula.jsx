@@ -2,7 +2,7 @@ function Pelicula(props) {
   const {foto, nombre} = props;
   return (
     <>
-      <article className="interprete" tabIndex="0">
+      <article className="interprete">
         <figure>
         <img src={foto} alt={nombre} />
         <figcaption className="sr-only">{props.children}</figcaption>

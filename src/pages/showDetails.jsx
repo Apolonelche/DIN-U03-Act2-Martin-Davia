@@ -1,20 +1,43 @@
 import { useParams } from "react-router-dom";
 import peliculas from "../data/peliculas";
 
-export default function ShowDetails() {
-    const { indice } = useParams();
-    console.log(indice);
-    const elemento = peliculas[indice];
-    const nombre = elemento.nombre
-    const foto = elemento.cartelera
-    const descripcion = elemento.resumen
+export default function ShowDetails({ tipo }) {
+    let elemento;
+    let nombre;
+    let foto; 
+    let descripcion; 
+
+
+    if (tipo === 'pelicula') {
+        const { indice } = useParams();
+        elemento = peliculas[indice];
+        
+        console.log(elemento);
+
+        nombre = elemento.nombre;
+        foto = elemento.cartelera;
+        descripcion = elemento.resumen;
+        
+    } else if (tipo === 'interprete') {
+        const { indice, interprete } = useParams();
+        const pelicula = peliculas[indice];
+        elemento = pelicula.actores[interprete];
+        
+        nombre = elemento.nombre; 
+        foto = elemento.imagen; 
+        descripcion = elemento.biografia; 
+    } 
     
     return (
         <>
-        <h2 className="contenedor__h2">{nombre}</h2>
-        <img src={foto} className="interprete img" alt={`Cartelera de la pelicula ${nombre}` }/>
-        <p>{descripcion}</p>
-
+            <div className="card_layout">
+                <img src={foto} className="card_img" alt={`Cartelera de la pelicula ${nombre}` }/>
+                
+                <div className="info_card">
+                    <h2 className="card_title">{nombre}</h2>
+                    <p className="card_desc">{descripcion}</p>
+                </div>
+            </div>
         </>
     )
 }

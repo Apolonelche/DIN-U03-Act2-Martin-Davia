@@ -2,7 +2,7 @@ function Interprete(props) {
   const {foto, nombre, esNota10} = props;
   return (
     <>
-      <article className={`interprete ${esNota10 ? 'nota10' : ''}`} tabIndex="0">
+      <article className={`interprete ${esNota10 ? 'nota10' : ''}`} >
         <figure>
         <img src={foto} alt={nombre} />
         <figcaption className="sr-only">{props.children}</figcaption>
