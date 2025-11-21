@@ -1,5 +1,5 @@
 import peliculas from "../data/peliculas.js"
-import Pelicula from "../components/Pelicula.jsx"
+import List from "../components/List.jsx"
 import { Link } from "react-router-dom"
 
 export default function Peliculas() {
@@ -10,13 +10,13 @@ export default function Peliculas() {
 
         {peliculas.map((pelicula, index) =>
         <Link to={`/details/${index}`} key={index} >
-          <Pelicula 
+          <List 
             key={index}
             nombre={pelicula.nombre} 
             foto={pelicula.cartelera}
           >
             {pelicula.clasificacion}
-          </Pelicula>
+          </List>
         </Link>
         )}
         </div>

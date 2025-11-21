@@ -1,6 +1,6 @@
 import peliculas from "../data/peliculas.js"
-import Interprete from "../components/Interprete.jsx"
 import { Link } from "react-router-dom"
+import List from "../components/List.jsx"
 
 export default function Interpretes() {
     return (
@@ -12,14 +12,14 @@ export default function Interpretes() {
          .map((pelicula) =>  
         pelicula.actores.map((interprete, index) =>
           <Link to={`/details/${peliculas.indexOf(pelicula)}/${index}`} key={index} >
-          <Interprete 
+          <List 
             key={index}
             nombre={interprete.nombre} 
             foto={interprete.imagen}
             esNota10={pelicula.nota === 10}
           >
             {interprete.biografia}
-          </Interprete>
+          </List>
           </Link>
         ))
         }

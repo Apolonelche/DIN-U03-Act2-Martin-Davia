@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import peliculas from "../data/peliculas";
 
 export default function ShowDetails({ tipo }) {
+    const navigate = useNavigate();
     let elemento;
     let nombre;
     let foto; 
@@ -36,6 +37,7 @@ export default function ShowDetails({ tipo }) {
                 <div className="info_card">
                     <h2 className="card_title">{nombre}</h2>
                     <p className="card_desc">{descripcion}</p>
+                    <button className="" onClick={() => navigate(-1)}>Volver</button>
                 </div>
             </div>
         </>

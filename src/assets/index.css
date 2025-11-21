@@ -26,6 +26,13 @@
 }
 
 
+p{
+  color: var(--negronegro);
+  font-size: var(--texto_normal-bold-font-size);
+  text-align: center;
+  margin-top: 2rem;
+}
+
 
 @media (min-width: 640px) {
   .contenedor {
@@ -87,6 +94,24 @@
   margin: 0 1rem 1rem 1rem;
 }
 
+button {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin-top: 3rem;
+  align-self: center;
+  font-weight: 600;
+  transition: 0.25s ease;
+  border: #181818 1px solid;
+  border-radius: 6px;
+  cursor: pointer;
+  
+}
+button:hover {
+  color: #fff;
+  background: #181818;
+}
+
+
 /* ================================================================= CARD DETAIL STYLES ========================================================================== */
 /* Contenedor principal para el layout de imagen y texto */
 .card_layout {
@@ -138,19 +163,18 @@
     margin-bottom: 0;
 }
 
-/* ================================================================= NAVBAR STYLES ========================================================================== */
-/* CONTENEDOR PRINCIPAL */
+/* === NAVBAR === */
 .nav {
   width: 100%;
   background: #181818;
   padding: 12px 20px;
   display: flex;
-  justify-content: space-between; /* Logo ← → Right */
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* LOGO */
+/* Logo */
 .nav__logo {
   color: #fff;
   font-size: 1.3rem;
@@ -158,25 +182,22 @@
   font-weight: 700;
 }
 
-/* CONTENEDOR DERECHA: menú + hamburguesa */
-.nav__right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* BOTÓN HAMBURGUESA */
-.nav__toggle {
+/* Botón hamburguesa */
+.nav__menu {
+  display: none; 
+  color: white;
+  font-size: 1.7rem;
+  cursor: pointer;
   background: none;
   border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
 }
 
+/* Lista de links */
+.nav__list {
+  display: flex;
+  gap: 0.8rem;
+}
 
-
-/* LINKS */
 .nav__link {
   text-decoration: none;
   font-size: 1rem;
@@ -192,24 +213,33 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Active */
-.nav__link--active {
-  color: #fff;
-  background: #007bff;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 600px) {
+/* === Responsive === */
+@media (max-width: 700px) {
   .nav {
     flex-direction: column;
-    gap: 0.8rem;
+    align-items: flex-start;
+    gap: 0.6rem;
+    position: relative;
   }
 
+  /* Mostrar hamburguesa en móvil */
+  .nav__menu {
+    display: block;
+    top: 10px;
+    right: 15px;
+  }
+
+  /* Lista oculta por defecto */
   .nav__list {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.7rem;
+    flex-direction: column;
+    width: 100%;
   }
 
-  
+  .nav__list.hidden {
+    display: none;
+  }
+
+  .nav__list.block {
+    display: flex;
+  }
 }
